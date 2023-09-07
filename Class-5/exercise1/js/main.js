@@ -1,20 +1,21 @@
-function makeCounter() {
-  let count = 0;
-  
-  return function() {
-    return count++;
-  };
-}
+//Goofy Hoisting Behaviors
+demo();
 
-let counter = makeCounter();
-alert( counter() ); 
-alert( counter() ); 
-alert( counter() ); 
-alert( makeCounter() );
+console.log(varV);
 
+var varV;
 
+varV = 5;
 
+console.log(varV);
 
+demo();
 
+function demo() {
+     if (varV === undefined) {
+     console.log("Execute some code.")
+} else {
+     console.log(`The number ${varV}.`)
+}};
 
 
