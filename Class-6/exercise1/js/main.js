@@ -143,6 +143,117 @@
 
 //E7
 
+class Library {
+     constructor (name) {
+          this.name = name;
+          this.collection = [];
+     }
+     
+     addBook(book) {
+          this.collection.push(book);          
+     }
+
+     findIndexByTitle(searchString) {
+          for (let i=0; i < this.collection.length; i++) {
+               const book = this.collection[i];
+               const regex = new RegExp(searchString, 'gi');
+
+               if (regex.test(book.title)) {
+                    return i;
+               }
+          }
+     return -1;
+     }
+     removeBookByIndex(index) {
+          if (index >= 0 && index < this.collection.length) {
+          this.collection.splice(index, 1);
+      }
+      return this.collection;      
+}
+     listCollection() {
+          console.log(`The Holdings of ${this.name} are as follows:`)
+          this.collection.forEach(printBook)
+          function printBook(item, index, arr) {
+               arr[index] = item;
+               console.log(`'${item.title}'`, `by: ${item.author}`)
+               index++
+          }
+     }
+
+     sendBook(index, targetLibrary) {
+          targetLibrary.addBook(this.collection[index]);
+          this.removeBookByIndex(index);
+     }
+}
+
+
+
+
+class Book {
+     #ISBN;
+     constructor (ISBN, title, author, yearPublished) {
+          this.#ISBN = ISBN;
+          this.title = title;
+          this.author = author;
+          this.yearPublished = yearPublished;
+     }
+     get getISBN() {
+          return this.#ISBN;
+     }
+
+
+};
+
+const paducah = new Library('Paducah Public Library');
+const capeG = new Library('Cape Girardeau Public Library');
+
+paducah.addBook(new Book('9780884046813', 'Battlefield Earth', 'L. Ron Hubbard', 1982));
+capeG.addBook(new Book('9780884046814', 'The Last Colony', 'John Scalzi', 2008));
+
+const ISBN9780451530783 = new Book('9780451530783', 'Pride and Prejudice', 'Jane Austen', 1831)
+
+const ISBN9780307969958 = new Book('9780307969958', 'Neuromancer', 'William Gibson', 1984);
+
+const ISBN0764576593 = new Book('0764576593', 'Javascript for Dummies', 'Emily A. Vander Veer', 2004);
+
+paducah.addBook(ISBN9780451530783);
+capeG.addBook(ISBN9780451530783);
+paducah.addBook(ISBN9780307969958);
+capeG.addBook(ISBN0764576593);
+
+console.log(paducah);
+console.log(capeG);
+console.log(paducah.findIndexByTitle('battle'));
+console.log(paducah.collection[0])
+console.log('############################');
+paducah.removeBookByIndex(0);
+
+paducah.listCollection();
+console.log('############################');
+capeG.listCollection();
+
+console.log('############################');
+
+capeG.sendBook(2, paducah);
+paducah.sendBook(1, capeG);
+
+paducah.listCollection();
+console.log('############################');
+capeG.listCollection();
+
+//Known Issues: findIndexByTitle only returns the first result that qualifies. There could be multiple titles that contain a string fragment, so it's necessary to check by logging. I feel like there's better ways to automate search and removal, but what I've built here is kind of on the bleeding edge of my understanding for today. 
+
+//Using Index to send/remove books is probably bad because the value corresponding to each indexed array item could change each time the array does.  A more robust version might use the ISBNs directly, but I only thought of that later. 
+
+//You gotta admit the sendBook function is pretty sick though. Like why else would we have a Library Class if we weren't going to have multiple libraries in the network. Frankly I think Cape gets the better end of the bargin getting Neuromancer after sending Javascript for Dummies. 
+
+//I also learned that Javascript isn't fond of nondecimal numbers leading with 0, which is why I changed ISBNs to strings. 
+
+//This was a good exercise, I think I learned a lot. 
+
+
+
+
 //E8
 // class Student {
 //      name;
