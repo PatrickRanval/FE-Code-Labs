@@ -221,8 +221,8 @@ capeG.addBook(ISBN9780451530783);
 paducah.addBook(ISBN9780307969958);
 capeG.addBook(ISBN0764576593);
 
-console.log(paducah);
-console.log(capeG);
+// console.log(paducah);
+// console.log(capeG);
 console.log(paducah.findIndexByTitle('battle'));
 console.log(paducah.collection[0])
 console.log('############################');
