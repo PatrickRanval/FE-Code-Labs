@@ -75,57 +75,57 @@
 
 // fetchPosts();
 
-//E4
-class Subject {
-	constructor() {
-		this.observers = [];
-	}
+// //E4
+// class Subject {
+// 	constructor() {
+// 		this.observers = [];
+// 	}
 
-	addObserver(observer) {
-		this.observers.push(observer);
-	}
+// 	addObserver(observer) {
+// 		this.observers.push(observer);
+// 	}
 
-	removeObserver(observer) {
-          const index = this.observers.indexOf(observer);
-          this.observers.splice(index, 1);
-	}
+// 	removeObserver(observer) {
+//           const index = this.observers.indexOf(observer);
+//           this.observers.splice(index, 1);
+// 	}
 
-	notifyObservers(data) {
-		this.observers.forEach(observer => observer.update(data));
-	}
+// 	notifyObservers(data) {
+// 		this.observers.forEach(observer => observer.update(data));
+// 	}
 
-	async fetchAndNotifyasync() {
-	const url = 'https://jsonplaceholder.typicode.com/posts?_limit=10';
-          try {
-               let response = await fetch(url);
-               let data = await response.json();
-               this.notifyObservers(data);
-        } catch (error) {
-               this.notifyObservers(error)
-        }
-}
-}
-
-
-class Observer {
-	update(data) {
-          if (Array.isArray(data)) {
-          let [{title}, ...rest] = data;
-          console.log(title);
-          } else {
-               console.log(data);
-          }
-     }
-}
+// 	async fetchAndNotifyasync() {
+// 	const url = 'https://jsonplaceholder.typicode.com/posts?_limit=10';
+//           try {
+//                let response = await fetch(url);
+//                let data = await response.json();
+//                this.notifyObservers(data);
+//         } catch (error) {
+//                this.notifyObservers(error)
+//         }
+// }
+// }
 
 
-const database = new Subject();
-const observer1 = new Observer();
-const observer2 = new Observer();
+// class Observer {
+// 	update(data) {
+//           if (Array.isArray(data)) {
+//           let [{title}, ...rest] = data;
+//           console.log(title);
+//           } else {
+//                console.log(data);
+//           }
+//      }
+// }
 
-database.addObserver(observer1);
-database.addObserver(observer2);
 
-database.fetchAndNotifyasync();
+// const database = new Subject();
+// const observer1 = new Observer();
+// const observer2 = new Observer();
 
-//Exercises completed.  I still feel really fuzzy on being able to follow functions being passed into functions, but I feel like these exercises helped. I ultimately really enjoyed the destructuring of objects, arrays, arrays inside of objects, etc.  I am not sure I always find the syntax intuitive, but it was cool. Having E4 be basically E1,2,3 stitched together was well-designed. It "felt" good to be able to copy and paste code I'd already built and understood. 
+// database.addObserver(observer1);
+// database.addObserver(observer2);
+
+// database.fetchAndNotifyasync();
+
+// //Exercises completed.  I still feel really fuzzy on being able to follow functions being passed into functions, but I feel like these exercises helped. I ultimately really enjoyed the destructuring of objects, arrays, arrays inside of objects, etc.  I am not sure I always find the syntax intuitive, but it was cool. Having E4 be basically E1,2,3 stitched together was well-designed. It "felt" good to be able to copy and paste code I'd already built and understood. 
