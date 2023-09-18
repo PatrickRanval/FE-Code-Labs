@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="css/main.css">
+     <title>DOM Events Exercise</title>
+</head>
+
+<body>
+     <main>
+          <button class="btn1 btn_onclick">Button1</button>
+          <button class="btn2 btn_onclick">Button2</button>
+          <button class="btn3 btn_onclick">Button3</button>
+          <button class="btn4 btn_onclick">Button4</button>
+          <!-- <button class="click_me" id="click_me">Click Me!</button>
+          <p id="clickerCount">
+               0               
+          </p> -->
+          <input type="text" id="textInput" />
+          <p id="textDisplay">Your Text Here</p>
+     </main>
+</body>
+
+<script>
+     let hue = 0;
+     let sat = 50;
+     let lightness = 50;
+     let dynamicColor = `hsl(${hue}, ${sat}%, ${lightness}%)`;
+          updateColor()
+
+     const buttons = document.querySelectorAll('.btn_onclick');
+     const button1 = document.querySelector('.btn1');
+     const button2 = document.querySelector('.btn2');
+     const button3 = document.querySelector('.btn3');
+     const button4 = document.querySelector('.btn4');
+     const clickMe = document.querySelector('#click_me');
+     const textInput = document.querySelector('#textInput');
+
+     textInput.addEventListener('input', printInput);
+
+     function printInput() {
+          document.getElementById('textDisplay').innerText = this.value;
+     }
+
+     // clickMe.addEventListener('click', alertUser );
+     
+     // function alertUser() {
+     //      alert('Button was clicked.');
+     // }     
+     
+
+    
+
+     function randomHue() {
+         hue = Math.floor(Math.random() * 359);
+     }
+
+     function updateColor() {
+          dynamicColor = `hsl(${hue}, ${sat}%, ${lightness}%)`;
+          document.body.style.backgroundColor = dynamicColor;
+     }
+
+     button1.onclick = () => {
+          if (sat+10 <= 100) {
+               sat = sat+10;
+          } else {
+               sat = 100
+          };
+          randomHue();
+          updateColor();
+     }
+
+     button2.onclick = () => {
+          if (sat-10 >= 0) {
+               sat = sat-10;
+          } else {
+               sat = 0
+          };
+          randomHue();
+          updateColor();
+     }
+
+     button3.onclick = () => {
+          if (lightness+10 <= 100) {
+               lightness = lightness+10;
+          } else {
+               lightness = 100
+          };
+          randomHue();
+          updateColor();
+     }
+
+     button4.onclick = () => {
+          if (lightness-10 >= 0) {
+               lightness = lightness-10;
+          } else {
+               lightness = 0
+          };
+          randomHue();
+          updateColor();
+     }
+
+
+     // buttons.forEach(button => {
+     //      button.onclick = function () {
+     //           hue = Math.floor(Math.random() * 359);
+     //           updateColor();
+     //      }
+     // })        
+
+     //I don't understand how the forEach loop plays
+     // into part VII and VIII of this exercise?  
+     //Like I could make the function called generate a random color
+     //such that it appears each button is doing something, but that would be silly. 
+     //Seemingly the forEach loop breaks the other functions, instead I made and called a singular randomize hue function and called it on each button.  
+
+</script>
+
+</html>

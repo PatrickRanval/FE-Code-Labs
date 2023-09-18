@@ -1,48 +1,66 @@
-class Time {
-    constructor(hours, minutes, seconds) {
-        this.hours = hours;
-        this.minutes = minutes;
-        this.seconds = seconds;
-    }
+//E0 Video Length Time Widget, for Fun
 
-    addTimes(time2) {
-        let sumSeconds = this.seconds + time2.seconds;
-        let sumMinutes = this.minutes + time2.minutes;
-        let sumHours = this.hours + time2.hours;
+// class Time {
+//     constructor(hours, minutes, seconds) {
+//         this.hours = hours;
+//         this.minutes = minutes;
+//         this.seconds = seconds;
+//     }
 
-        if (sumSeconds >= 60) {
-            sumMinutes += Math.floor(sumSeconds / 60);
-            sumSeconds %= 60;
-        }
+//     addTimes(time2) {
+//         let sumSeconds = this.seconds + time2.seconds;
+//         let sumMinutes = this.minutes + time2.minutes;
+//         let sumHours = this.hours + time2.hours;
 
-        if (sumMinutes >= 60) {
-            sumHours += Math.floor(sumMinutes / 60);
-            sumMinutes %= 60;
-        }
+//         if (sumSeconds >= 60) {
+//             sumMinutes += Math.floor(sumSeconds / 60);
+//             sumSeconds %= 60;
+//         }
 
-        return new Time(sumHours, sumMinutes, sumSeconds);
-    }
+//         if (sumMinutes >= 60) {
+//             sumHours += Math.floor(sumMinutes / 60);
+//             sumMinutes %= 60;
+//         }
 
-    printTime() {
-        console.log(`${this.hours}:${this.minutes}:${this.seconds}`);
-    }
-}
+//         return new Time(sumHours, sumMinutes, sumSeconds);
+//     }
 
-function sumVideos(myArr) {
-    let sumTotalTime = new Time(0, 0, 0);
+//     printTime() {
+//         console.log(`${this.hours}:${this.minutes}:${this.seconds}`);
+//     }
+// }
 
-    sumTotalTime = myArr.reduce((totalTime, element) => {
-        let arrTemp = element.split(':');
-        let [vidHours, vidMins, vidSecs] = arrTemp.map(Number);
+// function sumVideos(myArr) {
+//     let sumTotalTime = new Time(0, 0, 0);
 
-        let sumNewTime = new Time(vidHours, vidMins, vidSecs);
+//     sumTotalTime = myArr.reduce((totalTime, element) => {
+//         let arrTemp = element.split(':');
+//         let [vidHours, vidMins, vidSecs] = arrTemp.map(Number);
 
-        return totalTime.addTimes(sumNewTime);
-    }, new Time(0, 0, 0));
+//         let sumNewTime = new Time(vidHours, vidMins, vidSecs);
 
-    sumTotalTime.printTime();
-}
+//         return totalTime.addTimes(sumNewTime);
+//     }, new Time(0, 0, 0));
 
-const videoLengths = ['0:16:29', '0:14:59', '0:14:24', '0:3:53', '0:19:44', '0:16:44'];
+//     sumTotalTime.printTime();
+// }
 
-sumVideos(videoLengths);
+// const videoLengths = ['0:16:29', '0:14:59', '0:14:24', '0:3:53', '0:19:44', '0:16:44'];
+
+// sumVideos(videoLengths);
+
+//E1
+// const myDiv = document.querySelector('#myDiv');
+// const paragraphs = document.querySelectorAll('p')
+
+// myDiv.style.backgroundColor = '#1CE';
+
+// paragraphs.forEach(paragraph => {
+//   console.log(paragraph.textContent);
+// });
+
+// console.log(paragraphs);
+
+//E2
+
+
