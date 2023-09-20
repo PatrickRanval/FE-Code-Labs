@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Exercise 6</title>
+</head>
+
+<body>
+     <ul class="itemList">
+
+     </ul>
+</body>
+
+<script>
+     const myList = document.querySelector('.itemList');
+     
+     const items = [
+          { name: 'Item 1' },
+          { name: 'Item 2' },
+          { name: 'Item 3' },
+          { name: 'Item 4' }
+     ];
+
+     items.forEach(item => {
+          const newListItem = document.createElement('li');
+          newListItem.innerText = item.name;
+          myList.appendChild(newListItem);
+     })
+
+     items.forEach((item, index) => {
+          console.log(`Item at index ${index} is: ${item}`);
+     });
+
+     
+</script>
+
+</html>
