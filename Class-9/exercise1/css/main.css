@@ -1,0 +1,173 @@
+/* Global Styles */
+* {
+     margin: 0;
+}
+
+body {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: flex-start;
+     max-width: 100%;
+     overflow: hidden;
+     background-color: #000;
+     color: #7FFF00;
+     font-family: 'Arial', sans-serif;
+     font-size: 1.5em;
+     overflow-x: hidden;
+}
+
+header {
+     width: 100%;
+     text-align: center;
+     padding: 20px;
+     background-color: #000;
+     border-bottom: 2px solid #7FFF00;
+     display: none;
+}
+
+h1 {
+     font-size: 2.25em;
+}
+
+.todo-list {
+     width: 80%;
+     margin: 20px 0;
+     padding: 20px;
+}
+
+.task {
+     background-color: #222;
+     border: 2px solid #7FFF00;
+     padding: 10px;
+     margin: 10px 0;
+     border-radius: 5px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+}
+
+.task input[type="checkbox"] {
+     appearance: none;
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     width: 20px;
+     height: 20px;
+     border: 2px solid #7FFF00;
+     border-radius: 50%;
+     cursor: pointer;
+     background-color: transparent;
+}
+
+.task input[type="checkbox"]:checked {
+     background-color: #7FFF00;
+}
+
+.task label {
+     flex: 1;
+     margin-left: 10px;
+     font-size: 1.5em;
+     white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
+}
+
+.button {
+     background-color: rgb(128, 255, 0);
+     color: #000;
+     border: none;
+     padding: 10px 20px;
+     margin: 10px 0;
+     cursor: pointer;
+     border-radius: 5px;
+     font-size: 1em;
+     transition: background-color 0.3s ease;
+}
+
+.button:hover {
+     background-color: rgb(128, 255, 0);
+     animation: pulse-glow 0.4s infinite;     
+}
+
+@keyframes pulse-glow {
+     0% {
+          transform: scale(1);
+          box-shadow: 0 0 10px rgba(128, 255, 0);          
+     }
+
+     50% {
+          transform: scale(1.1);
+          box-shadow: 0 0 20px rgb(174, 0, 255);;
+     }
+
+     100% {
+          transform: scale(1);
+          box-shadow: 0 0 10px rgba(128, 255, 0);
+     }
+}
+
+.input {
+     background-color: #222;
+     color: #7FFF00;
+     border: 2px solid #7FFF00;
+     border-radius: 5px;
+     padding: 10px;
+     font-size: 1em;
+     width: 100%;
+     margin: 10px 0;
+}
+
+
+footer {
+     position: fixed;
+     bottom: 0;
+     width: 100%;
+     text-align: center;
+     padding: 20px;
+     background-color: #000;
+     border-top: 2px solid #7FFF00;
+     display: none;
+}
+
+a {
+     color: #7FFF00;
+     text-decoration: none;
+}
+
+a:hover {
+     text-decoration: underline;
+}
+
+
+body::before {
+     content: '';
+     position: fixed;
+     top: 0;
+     left: 0;
+     background-image: url('../img/sandro-katalina-background\ \(Small\).jpg');
+     background-size: cover;
+     min-width: 100%;
+     min-height: 100vh;
+     background-position: center;
+     opacity: 0.4;
+     z-index: -1;
+} 
+
+
+@media screen and (min-width: 769px) {
+     
+     /* Load full-size image, show header, show footer on bigger screens      */
+
+     header {
+          display: block;
+     }
+     body::before {
+          background-image: url('../img/sandro-katalina-background.jpg');
+          max-width: 100%;
+          min-height: 100vh;
+     }
+
+     footer {
+          display: block;
+     }
+}
