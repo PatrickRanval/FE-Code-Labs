@@ -1,4 +1,15 @@
-# MyFirstApp
+# Reflections
+
+I had to do a lot of reverse engineering from the files with the code along. 
+
+There are aspects of Angular that are easier, like it seems less cumbersome to implement things that equate to querySelectors and eventListeners. 
+
+Still, I feel confident in doing absolutely none of it from scratch. I also feel daunted by just how large an Angular project package is. I recognize most of that I won't interact with, but it's still an intimidating amount of files. 
+
+I'm perpetually struck by how much has to be absolutely perfect to run code successfully.  
+
+
+# MyFirst(Arguably Third)App
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.3.
 
