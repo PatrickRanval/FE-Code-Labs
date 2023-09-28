@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>I'm in the App Component!</h3>
+      <hr>
+      <!-- <app-servers></app-servers> -->
+      <!-- <label>Username</label>
+      <input type="text" class="form-control" [(ngModel)]="username">
+      <p>{{ username }}</p>
+      <button
+      class="btn btn-primary"
+      [disabled]="username === ''"
+      (click)="username = ''">Set</button> -->
+      <!-- <button class="btn btn-primary" (click)="showSecret = !showSecret">Toggle Display</button> -->
+      <button class="btn btn-primary" (click)="onToggleDetails()">Toggle Display</button>
+      <p *ngIf="showSecret else onHidden">Secret Password = Trout</p>
+      <ng-template #onHidden>
+        <p>Secret is Hidden</p>
+      </ng-template>
+      <div
+      *ngFor="let logItem of log; let i = index"
+      [ngStyle]="{'background-color': i >= 4 ? 'blue' : 'transparent'}"
+      [ngClass]="{'white-text': i >= 4}"
+      >{{ logItem }}</div>
+
+    </div>
+  </div>
+</div>

@@ -7,6 +7,7 @@
 
      let studentGrade = 75;
 
+     
      function isPassing() {
           return this.value >= 62
      };
